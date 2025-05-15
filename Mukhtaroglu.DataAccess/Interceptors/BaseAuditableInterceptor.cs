@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Mukhtaroglu.Core.Entities.Common;
-using Mukhtaroglu.DataAccess.Contexts;
 using System.Security.Claims;
 
 namespace Mukhtaroglu.DataAccess.Interceptors;

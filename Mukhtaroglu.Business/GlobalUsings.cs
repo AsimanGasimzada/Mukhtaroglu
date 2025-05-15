@@ -1,0 +1,8 @@
+﻿global using Mukhtaroglu.Business.Dtos;
+global using Mukhtaroglu.Business.Exceptions;
+global using Mukhtaroglu.Business.ExternalServices.Abstractions;
+global using Mukhtaroglu.Business.Helpers;
+global using Mukhtaroglu.Business.Services.Abstractions;
+global using Mukhtaroglu.Core.Entities;
+global using Mukhtaroglu.Core.Enums;
+global using Mukhtaroglu.DataAccess.Repositories.Abstractions;

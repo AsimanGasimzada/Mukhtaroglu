@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
-using System.Linq.Expressions;
 using Mukhtaroglu.Core.Entities.Common;
+using System.Linq.Expressions;
 
-namespace Mukhtaroglu.DataAccess.Repositories.Abstractions;
+namespace Mukhtaroglu.DataAccess.Repositories.Abstractions.Generic;
 
 public interface IRepository<T> where T : BaseEntity
 {

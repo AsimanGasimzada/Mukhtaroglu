@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Mukhtaroglu.Core.Entities.Common;
-using Mukhtaroglu.DataAccess.Contexts;
-using Mukhtaroglu.DataAccess.Repositories.Abstractions;
+using Mukhtaroglu.DataAccess.Repositories.Abstractions.Generic;
 using System.Linq.Expressions;
 
 namespace Mukhtaroglu.DataAccess.Repositories.Implementations.Generic;

@@ -9,6 +9,6 @@ internal class LanguageConfiguration : IEntityTypeConfiguration<Language>
     {
         builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
         builder.Property(x => x.Code).IsRequired().HasMaxLength(10);
-        builder.Property(x => x.Icon).IsRequired().HasMaxLength(50);
+        builder.Property(x => x.Icon).IsRequired().HasMaxLength(512);
     }
 }

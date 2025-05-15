@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Mukhtaroglu.Core.Entities;
+using Mukhtaroglu.DataAccess.DataInitalizers;
 using Mukhtaroglu.DataAccess.Interceptors;
 
 namespace Mukhtaroglu.DataAccess.Contexts;
@@ -25,6 +26,7 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        builder.AddSeedData();
         base.OnModelCreating(builder);
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
