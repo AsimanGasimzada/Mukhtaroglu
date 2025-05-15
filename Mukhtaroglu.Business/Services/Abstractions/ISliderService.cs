@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Mukhtaroglu.Business.Dtos;
+using Mukhtaroglu.Business.Services.Abstractions.Generic;
 
 namespace Mukhtaroglu.Business.Services.Abstractions;
-internal interface ISliderService
+public interface ISliderService : IService<SliderGetDto, SliderCreateDto, SliderUpdateDto>
 {
 }

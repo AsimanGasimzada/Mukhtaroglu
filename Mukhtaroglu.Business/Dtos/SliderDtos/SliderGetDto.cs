@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Mukhtaroglu.Core.Abstractions;
 
-namespace Mukhtaroglu.Business.Dtos.SliderDtos;
-internal class SliderGetDto
+namespace Mukhtaroglu.Business.Dtos;
+public class SliderGetDto : IDto
+{
+}
+
+public class SliderCreateDto : IDto
+{
+}
+
+public class SliderUpdateDto : IDto
 {
 }
