@@ -8,5 +8,6 @@ public class SliderGetDto : IDto
     public required string ImagePath { get; set; }
     public required string Url { get; set; }
     public required string Title { get; set; }
+    public required string ButtonTitle { get; set; }
     public required string Description { get; set; }
 }

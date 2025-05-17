@@ -2,6 +2,7 @@
 global using Mukhtaroglu.Business.Exceptions;
 global using Mukhtaroglu.Business.ExternalServices.Abstractions;
 global using Mukhtaroglu.Business.Helpers;
+global using AutoMapper;
 global using Mukhtaroglu.Business.Services.Abstractions;
 global using Mukhtaroglu.Core.Entities;
 global using Mukhtaroglu.Core.Enums;

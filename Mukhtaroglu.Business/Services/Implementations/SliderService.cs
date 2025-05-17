@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Mukhtaroglu.Business.Services.Implementations;
 internal class SliderService : ISliderService
@@ -117,7 +118,7 @@ internal class SliderService : ISliderService
         }
 
 
-        if (LanguageHelper.CheckLanguageItems(dto.SliderLanguages.Select(x => x.LanguageId)))
+        if (!LanguageHelper.CheckLanguageItems(dto.SliderLanguages.Select(x => x.LanguageId)))
         {
             ModelState.AddModelError("", "Somethings is wrong");
             return false;
@@ -143,6 +144,6 @@ internal class SliderService : ISliderService
         return true;
     }
 
-    private Func<IQueryable<Slider>, Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Slider, object>> _getIncludeFunc()
+    private Func<IQueryable<Slider>, IIncludableQueryable<Slider, object>> _getIncludeFunc()
                                                          => x => x.Include(x => x.SliderLanguages.Where(x => x.LanguageId == (int)_selectedLanguage));
 }

@@ -20,6 +20,8 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
     public required DbSet<SliderLanguage> SliderLanguages { get; set; }
     public required DbSet<Service> Services { get; set; }
     public required DbSet<ServiceLanguage> ServiceLanguages { get; set; }
+    public required DbSet<Setting> Settings { get; set; }
+    public required DbSet<SettingLanguage> SettingLanguages { get; set; }
 
 
 

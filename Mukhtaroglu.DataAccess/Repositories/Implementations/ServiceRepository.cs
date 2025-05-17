@@ -2,9 +2,4 @@
 
 namespace Mukhtaroglu.DataAccess.Repositories.Implementations;
 
-internal class ServiceRepository : Repository<Service>, IServiceRepository
-{
-    public ServiceRepository(AppDbContext context) : base(context)
-    {
-    }
-}
+internal class ServiceRepository(AppDbContext context) : Repository<Service>(context), IServiceRepository { }

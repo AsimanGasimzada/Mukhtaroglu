@@ -5,5 +5,6 @@ public class SliderLanguageCreateDto : IDto
 {
     public required string Title { get; set; }
     public required string Description { get; set; }
+    public required string ButtonTitle { get; set; }
     public required int LanguageId { get; set; }
 }

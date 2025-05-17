@@ -25,5 +25,7 @@ public static class BusinessServiceRegistration
     {
         services.AddScoped<ILanguageService, LanguageService>();
         services.AddScoped<ISliderService, SliderService>();
+        services.AddScoped<IServiceService, ServiceService>();
+        services.AddScoped<ISettingService, SettingService>();
     }
 }

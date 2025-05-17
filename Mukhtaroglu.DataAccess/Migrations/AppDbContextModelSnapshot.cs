@@ -323,6 +323,56 @@ namespace Mukhtaroglu.DataAccess.Migrations
                     b.ToTable("ServiceLanguages");
                 });
 
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.Setting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Key")
+                        .IsUnique();
+
+                    b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.SettingLanguage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SettingId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("SettingId", "LanguageId")
+                        .IsUnique();
+
+                    b.ToTable("SettingLanguages");
+                });
+
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -371,6 +421,10 @@ namespace Mukhtaroglu.DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ButtonTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -468,6 +522,25 @@ namespace Mukhtaroglu.DataAccess.Migrations
                     b.Navigation("Service");
                 });
 
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.SettingLanguage", b =>
+                {
+                    b.HasOne("Mukhtaroglu.Core.Entities.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mukhtaroglu.Core.Entities.Setting", "Setting")
+                        .WithMany("SettingLanguages")
+                        .HasForeignKey("SettingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Setting");
+                });
+
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.SliderLanguage", b =>
                 {
                     b.HasOne("Mukhtaroglu.Core.Entities.Language", "Language")
@@ -490,6 +563,11 @@ namespace Mukhtaroglu.DataAccess.Migrations
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.Service", b =>
                 {
                     b.Navigation("ServiceLanguages");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.Setting", b =>
+                {
+                    b.Navigation("SettingLanguages");
                 });
 
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.Slider", b =>

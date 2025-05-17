@@ -24,6 +24,7 @@ public static class DataAccessServiceRegistration
     {
         services.AddScoped<IServiceRepository, ServiceRepository>();
         services.AddScoped<ISliderRepository, SliderRepository>();
+        services.AddScoped<ISettingRepository, SettingRepository>();
     }
 
     private static void _addDatabase(IServiceCollection services, IConfiguration configuration)
