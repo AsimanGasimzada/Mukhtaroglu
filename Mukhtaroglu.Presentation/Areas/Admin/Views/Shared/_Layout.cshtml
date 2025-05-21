@@ -15,7 +15,7 @@
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- <link rel="stylesheet" href="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css"> -->
-    <link rel="stylesheet" href="~/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+    @* <link rel="stylesheet" href="~/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.css"> *@
     <link rel="stylesheet" href="~/admin/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="~/admin/js/select.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css">
@@ -23,13 +23,15 @@
 
 
 
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    @* <link rel="stylesheet" href="sweetalert2.min.css"> *@
 
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="~/admin/css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="~/admin/images/favicon.png" />
+    <link rel="stylesheet" href="~/admin/css/richTextEditor.css" />
+
 </head>
 <body>
     <div class="container-scroller">
@@ -152,23 +154,25 @@
 
     </script>
 
-    <script type="importmap">
-        {
-            "imports": {
-                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.js",
-                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.2.0/"
-            }
-        }
-    </script>
+    @* <script type="importmap"> *@
+    @*     { *@
+    @*         "imports": { *@
+    @*             "ckeditor5": "../admin/js/ckeditor5.js", *@
+    @*         } *@
+    @*     } *@
+    @* </script> *@
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.js"></script>
 
 
     <script src="~/admin/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="~/admin/vendors/chart.js/chart.umd.js"></script>
-    <script src="~/admin/vendors/datatables.net/jquery.dataTables.js"></script>
+    @* <script src="~/admin/vendors/datatables.net/jquery.dataTables.js"></script> *@
     <!-- <script src="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script> -->
-    <script src="~/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+    @* <script src="~/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script> *@
     <script src="~/admin/js/dataTables.select.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
@@ -227,7 +231,7 @@
             });
         </script>
     }
-
+    <script src="~/admin/js/richTextEditor.js"></script>
     <!-- <script src="~/admin/js/Chart.roundedBarCharts.js"></script> -->
     <!-- End custom js for this page-->
     @await RenderSectionAsync("Scripts", required: false)

@@ -1,7 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Mukhtaroglu.Business.ExternalServices.Abstractions;
 using Mukhtaroglu.Business.ExternalServices.Implementations;
-using Mukhtaroglu.Business.Services.Abstractions;
 using Mukhtaroglu.Business.Services.Implementations;
 
 namespace Mukhtaroglu.Business.ServiceRegistrations;
@@ -25,7 +23,10 @@ public static class BusinessServiceRegistration
     {
         services.AddScoped<ILanguageService, LanguageService>();
         services.AddScoped<ISliderService, SliderService>();
+        services.AddScoped<IRecommendationService, RecommendationService>();
         services.AddScoped<IServiceService, ServiceService>();
         services.AddScoped<ISettingService, SettingService>();
+        services.AddScoped<IEmployeeService, EmployeeService>();
+        services.AddScoped<IFAQService, FAQService>();
     }
 }

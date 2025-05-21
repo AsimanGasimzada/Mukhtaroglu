@@ -220,6 +220,135 @@ namespace Mukhtaroglu.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EmailAddress")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.EmployeeLanguage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Fullname")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("EmployeeId", "LanguageId")
+                        .IsUnique();
+
+                    b.ToTable("EmployeeLanguages");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.FAQ", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FAQs", t =>
+                        {
+                            t.HasCheckConstraint("CK_FAQs_Order_Constraint", "[Order] >= 0 ");
+                        });
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.FAQLanguage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FAQId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("Topic")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("FAQId", "LanguageId")
+                        .IsUnique();
+
+                    b.ToTable("FAQLanguages");
+                });
+
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.Language", b =>
                 {
                     b.Property<int>("Id")
@@ -269,6 +398,64 @@ namespace Mukhtaroglu.DataAccess.Migrations
                             Icon = "https://res.cloudinary.com/dlilcwizx/image/upload/v1730241623/motordoctor.az/upkqfbyfpy7rvmjdwfsm.png",
                             Name = "Russian"
                         });
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.Recommendation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Recommendations", t =>
+                        {
+                            t.HasCheckConstraint("CK_Recommendations_Rating_Constraint", "[Rating] >= 0 AND [Rating] <= 5");
+                        });
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.RecommendationLanguage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Profession")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("RecommendationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("RecommendationId", "LanguageId")
+                        .IsUnique();
+
+                    b.ToTable("RecommendationLanguages");
                 });
 
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.Service", b =>
@@ -503,6 +690,63 @@ namespace Mukhtaroglu.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.EmployeeLanguage", b =>
+                {
+                    b.HasOne("Mukhtaroglu.Core.Entities.Employee", "Employee")
+                        .WithMany("EmployeeLanguages")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mukhtaroglu.Core.Entities.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.FAQLanguage", b =>
+                {
+                    b.HasOne("Mukhtaroglu.Core.Entities.FAQ", "FAQ")
+                        .WithMany("FAQLanguages")
+                        .HasForeignKey("FAQId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mukhtaroglu.Core.Entities.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FAQ");
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.RecommendationLanguage", b =>
+                {
+                    b.HasOne("Mukhtaroglu.Core.Entities.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mukhtaroglu.Core.Entities.Recommendation", "Recommendation")
+                        .WithMany("RecomendationLanguages")
+                        .HasForeignKey("RecommendationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Recommendation");
+                });
+
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.ServiceLanguage", b =>
                 {
                     b.HasOne("Mukhtaroglu.Core.Entities.Language", "Language")
@@ -558,6 +802,21 @@ namespace Mukhtaroglu.DataAccess.Migrations
                     b.Navigation("Language");
 
                     b.Navigation("Slider");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.Employee", b =>
+                {
+                    b.Navigation("EmployeeLanguages");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.FAQ", b =>
+                {
+                    b.Navigation("FAQLanguages");
+                });
+
+            modelBuilder.Entity("Mukhtaroglu.Core.Entities.Recommendation", b =>
+                {
+                    b.Navigation("RecomendationLanguages");
                 });
 
             modelBuilder.Entity("Mukhtaroglu.Core.Entities.Service", b =>

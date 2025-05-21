@@ -10,7 +10,6 @@ public static class DataAccessServiceRegistration
 {
     public static IServiceCollection AddDataAccessServices(this IServiceCollection services, IConfiguration configuration)
     {
-
         _addDatabase(services, configuration);
         _addIdentity(services);
         _addRepositories(services);
@@ -25,6 +24,9 @@ public static class DataAccessServiceRegistration
         services.AddScoped<IServiceRepository, ServiceRepository>();
         services.AddScoped<ISliderRepository, SliderRepository>();
         services.AddScoped<ISettingRepository, SettingRepository>();
+        services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IFAQRepository, FAQRepository>();
+        services.AddScoped<IRecommendationRepository, RecommendationRepository>();
     }
 
     private static void _addDatabase(IServiceCollection services, IConfiguration configuration)

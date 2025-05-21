@@ -2,6 +2,4 @@
 
 namespace Mukhtaroglu.DataAccess.Repositories.Abstractions;
 
-public interface IServiceRepository : IRepository<Service>
-{
-}
+public interface IServiceRepository : IRepository<Service> { }

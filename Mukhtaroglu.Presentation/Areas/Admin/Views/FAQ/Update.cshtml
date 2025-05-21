@@ -1,0 +1,148 @@
+﻿@model FAQUpdateDto
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description">
+                FAQ dəyişdir
+            </p>
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
+
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group">
+
+                    <input asp-for="@Model.FAQLanguages[0].LanguageId" value="1" type="hidden" />
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Azərbaycanca mövzu</label>
+                        <input class="form-control faqTopic" required asp-for="@Model.FAQLanguages[0].Topic" placeholder="Mövzu daxil edin">
+                        <span asp-validation-for="@Model.FAQLanguages[0].Topic" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Azərbaycanca sual</label>
+                        <input class="form-control faqQuestion" required asp-for="@Model.FAQLanguages[0].Question" placeholder="Sual daxil edin">
+                        <span asp-validation-for="@Model.FAQLanguages[0].Question" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Azərbaycanca cavab</label>
+                        <textarea class="form-control rich-editor" id="description0" asp-for="@Model.FAQLanguages[0].Answer" placeholder="Cavab daxil edin"></textarea>
+                        <span asp-validation-for="@Model.FAQLanguages[0].Answer" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input class=" sameDataInput" id="checkbox" type="checkbox">
+                        <label for="checkbox">Bütün dillərdə eyni olsun</label>
+                    </div>
+
+                </div>
+
+                <hr />
+                <br />
+                <br />
+
+                <div class="form-group">
+
+                    <input asp-for="@Model.FAQLanguages[1].LanguageId" value="2" type="hidden" />
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">İngiliscə mövzu</label>
+                        <input class="form-control faqTopic" required asp-for="@Model.FAQLanguages[1].Topic" placeholder="Mövzu daxil edin">
+                        <span asp-validation-for="@Model.FAQLanguages[1].Topic" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">İngiliscə sual</label>
+                        <input class="form-control faqQuestion" required asp-for="@Model.FAQLanguages[1].Question" placeholder="Sual daxil edin">
+                        <span asp-validation-for="@Model.FAQLanguages[1].Question" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">İngiliscə cavab</label>
+                        <textarea class="form-control rich-editor" id="description0" asp-for="@Model.FAQLanguages[1].Answer" placeholder="Cavab daxil edin"></textarea>
+                        <span asp-validation-for="@Model.FAQLanguages[1].Answer" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+
+                <hr />
+                <br />
+                <br />
+                <div class="form-group">
+
+                    <input asp-for="@Model.FAQLanguages[2].LanguageId" value="3" type="hidden" />
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Rusca mövzu</label>
+                        <input class="form-control faqTopic" required asp-for="@Model.FAQLanguages[2].Topic" placeholder="Mövzu daxil edin">
+                        <span asp-validation-for="@Model.FAQLanguages[2].Topic" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Rusca sual</label>
+                        <input class="form-control faqQuestion" required asp-for="@Model.FAQLanguages[2].Question" placeholder="Sual daxil edin">
+                        <span asp-validation-for="@Model.FAQLanguages[2].Question" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Rusca cavab</label>
+                        <textarea class="form-control rich-editor" id="description0" asp-for="@Model.FAQLanguages[2].Answer" placeholder="Cavab daxil edin"></textarea>
+                        <span asp-validation-for="@Model.FAQLanguages[2].Answer" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+
+                <hr />
+                <br />
+                <br />
+
+
+                <div class="form-group">
+                    <label for="exampleInputUsername1"> Sıra nömrəsi daxil edin.Qeyd:Daxil etdiyiniz sıra nömrəsi bu mətnin səhifədə neçənci sırada olacağını göstərir</label>
+                    <input class="form-control" asp-for="Order" placeholder="Sıra nömrəsi daxil edin">
+                    <span asp-validation-for="Order" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputUsername1"> Aktivdir</label>
+                    <input class="form-checkout" asp-for="IsActive" type="checkbox">
+                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-warning mr-2">Yarat</button>
+                <a class="btn btn-light" asp-action="Index">Ləğv et</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+
+    <script>
+
+
+
+           const sameDataInput=document.querySelector(".sameDataInput")
+           const topicInputs=document.querySelectorAll(".faqTopic");
+           const questionInputs=document.querySelectorAll(".faqQuestion");
+
+        sameDataInput.addEventListener("change",(e)=>{
+            e.preventDefault();
+            if(sameDataInput.checked){
+
+                let topic=topicInputs[0].value;
+                let question=questionInputs[0].value;
+
+                topicInputs.forEach(input=>input.value=topic)
+                questionInputs.forEach(input=>input.value=question)
+            }
+        })
+    </script>
+}

@@ -22,6 +22,12 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
     public required DbSet<ServiceLanguage> ServiceLanguages { get; set; }
     public required DbSet<Setting> Settings { get; set; }
     public required DbSet<SettingLanguage> SettingLanguages { get; set; }
+    public required DbSet<Employee> Employees { get; set; }
+    public required DbSet<EmployeeLanguage> EmployeeLanguages { get; set; }
+    public required DbSet<FAQ> FAQs { get; set; }
+    public required DbSet<FAQLanguage> FAQLanguages { get; set; }
+    public required DbSet<Recommendation> Recommendations { get; set; }
+    public required DbSet<RecommendationLanguage> RecommendationLanguages { get; set; }
 
 
 

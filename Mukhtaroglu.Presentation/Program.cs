@@ -1,5 +1,6 @@
 using Mukhtaroglu.Business.ServiceRegistrations;
 using Mukhtaroglu.DataAccess.ServiceRegistrations;
+using Mukhtaroglu.Presentation.Extensions;
 
 namespace Mukhtaroglu.Presentation;
 
@@ -15,6 +16,8 @@ public class Program
         builder.Services.AddDataAccessServices(builder.Configuration);
 
         var app = builder.Build();
+
+        app.ConfigureLocalizerOptions();
 
         if (!app.Environment.IsDevelopment())
         {
