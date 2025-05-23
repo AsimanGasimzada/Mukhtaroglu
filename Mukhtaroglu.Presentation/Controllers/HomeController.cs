@@ -1,19 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
+using Mukhtaroglu.Business.Services.Abstractions;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Mukhtaroglu.Presentation.Controllers;
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IUIService _uiService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IUIService uiService)
     {
-        _logger = logger;
+        _uiService = uiService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return Ok("Hello");
+        var homeDto = await _uiService.GetHomeDtoAsync();
+
+        return View(homeDto);
     }
 
     public IActionResult Privacy()

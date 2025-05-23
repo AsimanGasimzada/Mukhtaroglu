@@ -35,6 +35,8 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
     {
         builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         builder.AddSeedData();
+
+        builder.Entity<Slider>().HasQueryFilter(x => !x.IsDeleted);
         base.OnModelCreating(builder);
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

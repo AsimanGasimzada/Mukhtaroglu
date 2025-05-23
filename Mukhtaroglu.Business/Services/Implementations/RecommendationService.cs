@@ -59,8 +59,6 @@ internal class RecommendationService : IRecommendationService
         return dtos;
     }
 
-    private Func<IQueryable<Recommendation>, IIncludableQueryable<Recommendation, object>> _getIncludeFunc()
-                                        => x => x.Include(x => x.RecommendationLanguages.Where(x => x.LanguageId == (int)_selectedLanguage));
 
 
     public async Task<RecommendationGetDto> GetAsync(int id)
@@ -110,4 +108,7 @@ internal class RecommendationService : IRecommendationService
 
         return true;
     }
+
+    private Func<IQueryable<Recommendation>, IIncludableQueryable<Recommendation, object>> _getIncludeFunc()
+                                        => x => x.Include(x => x.RecommendationLanguages.Where(x => x.LanguageId == (int)_selectedLanguage));
 }

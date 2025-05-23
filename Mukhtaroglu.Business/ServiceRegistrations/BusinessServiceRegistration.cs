@@ -28,5 +28,6 @@ public static class BusinessServiceRegistration
         services.AddScoped<ISettingService, SettingService>();
         services.AddScoped<IEmployeeService, EmployeeService>();
         services.AddScoped<IFAQService, FAQService>();
+        services.AddScoped<IUIService, UIService>();
     }
 }

@@ -1,6 +1,4 @@
-﻿using Mukhtaroglu.Business.Dtos;
-
-namespace Mukhtaroglu.Business.Profiles;
+﻿namespace Mukhtaroglu.Business.Profiles;
 internal class RecommendationProfile : Profile
 {
     public RecommendationProfile()
