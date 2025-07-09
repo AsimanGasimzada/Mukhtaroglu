@@ -105,7 +105,7 @@ internal class SliderService : ISliderService
 
         if (dto.Image is { })
         {
-            if (dto.Image.CheckSize(2))
+            if (!dto.Image.CheckSize(2))
             {
                 ModelState.AddModelError("Image", "Image size must be less than 2 MB");
                 return false;

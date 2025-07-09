@@ -7,6 +7,6 @@ internal class SettingProfile : Profile
             .ForMember(dest => dest.Value, opt => opt.MapFrom(x => x.SettingLanguages.Any() ? x.SettingLanguages.FirstOrDefault()!.Value : string.Empty))
             .ReverseMap();
         CreateMap<Setting, SettingCreateDto>().ReverseMap();
-        CreateMap<Setting, SettingUpdateDto>().ForMember(x => x.Key, x => x.Ignore()).ReverseMap();
+        CreateMap<Setting, SettingUpdateDto>().ReverseMap().ForMember(x => x.Key, x => x.Ignore());
     }
 }

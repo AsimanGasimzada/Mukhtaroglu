@@ -1,0 +1,47 @@
+﻿@model FAQDto
+@{
+    int count = 1;
+}
+<!-- Section: Page Title -->
+<section class="backlight-bottom">
+    <!-- Section Title -->
+    <div class="stg-row stg-bottom-gap-l">
+        <div class="stg-col-8">
+            <h1 class="stg-bottom-gap" data-split-appear="fade-up" data-split-unload="fade-up">@Model.Settings["FAQTitle"]</h1>
+        </div>
+        <div class="stg-col-4"></div>
+    </div>
+
+
+    <!-- Section Content -->
+    <div class="stg-row stg-large-gap">
+        <div class="stg-col-6 stg-offset-6" data-appear="fade-left" data-unload="fade-right">
+            <p class="bringer-large-text">@Model.Settings["FAQDescription"]</p>
+        </div>
+    </div>
+</section>
+
+<!-- Section: FAQ -->
+<section>
+    <!-- FAQ List -->
+    <div class="bringer-faq-list">
+        @foreach (var fAQ in Model.FAQs)
+        {
+            <!-- FAQ Item 0 -->
+            <div class="bringer-toggles-item bringer-block" data-appear="fade-up" data-unload="fade-up">
+                <div class="bringer-toggles-item--title">
+                    <span class="bringer-label">@fAQ.Topic</span>
+                    <h4>
+                        <sup>@(count++).</sup>
+                        @fAQ.Question
+                    </h4>
+                </div>
+                <div class="bringer-toggles-item--content">
+                    <p>@(Html.Raw(fAQ.Answer))</p>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<partial name="_contactPartial"></partial>

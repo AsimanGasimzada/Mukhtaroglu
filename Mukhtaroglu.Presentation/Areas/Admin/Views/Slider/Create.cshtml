@@ -15,7 +15,7 @@
                     <input asp-for="@Model.SliderLanguages[0].LanguageId" value="1" type="hidden" />
                     <div class="form-group">
                         <label for="exampleInputUsername1">Azərbaycanca başlıq</label>
-                        <input class="form-control sliderName" required asp-for="@Model.SliderLanguages[0].Title" placeholder="Başlıq daxil edin">
+                        <input class="form-control sliderName"  asp-for="@Model.SliderLanguages[0].Title" placeholder="Başlıq daxil edin">
                         <span asp-validation-for="@Model.SliderLanguages[0].Title" class="text-danger"></span>
                     </div>
 
@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputUsername1">Azərbaycanca düymə kontenti</label>
-                        <input class="form-control sliderButton" required asp-for="@Model.SliderLanguages[0].ButtonTitle" placeholder="Düymə üçün kontent daxil edin">
+                        <input class="form-control sliderButton"  asp-for="@Model.SliderLanguages[0].ButtonTitle" placeholder="Düymə üçün kontent daxil edin">
                         <span asp-validation-for="@Model.SliderLanguages[0].ButtonTitle" class="text-danger"></span>
                     </div>
 
@@ -47,7 +47,7 @@
                     <input asp-for="@Model.SliderLanguages[1].LanguageId" value="2" type="hidden" />
                     <div class="form-group">
                         <label for="exampleInputUsername1">İngiliscə başlıq</label>
-                        <input class="form-control sliderName" required asp-for="@Model.SliderLanguages[1].Title" placeholder="Başlıq daxil edin">
+                        <input class="form-control sliderName"  asp-for="@Model.SliderLanguages[1].Title" placeholder="Başlıq daxil edin">
                         <span asp-validation-for="@Model.SliderLanguages[1].Title" class="text-danger"></span>
                     </div>
 
@@ -60,7 +60,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputUsername1">İngiliscə düymə kontenti</label>
-                        <input class="form-control sliderButton" required asp-for="@Model.SliderLanguages[1].ButtonTitle" placeholder="Düymə üçün kontent daxil edin">
+                        <input class="form-control sliderButton"  asp-for="@Model.SliderLanguages[1].ButtonTitle" placeholder="Düymə üçün kontent daxil edin">
                         <span asp-validation-for="@Model.SliderLanguages[1].ButtonTitle" class="text-danger"></span>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <input asp-for="@Model.SliderLanguages[2].LanguageId" value="3" type="hidden" />
                     <div class="form-group">
                         <label for="exampleInputUsername1">Rusca başlıq</label>
-                        <input class="form-control sliderName" required asp-for="@Model.SliderLanguages[2].Title" placeholder="Başlıq daxil edin">
+                        <input class="form-control sliderName"  asp-for="@Model.SliderLanguages[2].Title" placeholder="Başlıq daxil edin">
                         <span asp-validation-for="@Model.SliderLanguages[2].Title" class="text-danger"></span>
                     </div>
 
@@ -86,7 +86,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputUsername1">Rusca düymə kontenti</label>
-                        <input class="form-control sliderButton" required asp-for="@Model.SliderLanguages[2].ButtonTitle" placeholder="Düymə üçün kontent daxil edin">
+                        <input class="form-control sliderButton"  asp-for="@Model.SliderLanguages[2].ButtonTitle" placeholder="Düymə üçün kontent daxil edin">
                         <span asp-validation-for="@Model.SliderLanguages[2].ButtonTitle" class="text-danger"></span>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputUsername1"> Şəkil seçin</label>
-                    <input class="form-control" accept="image/*" asp-for="Image">
+                    <input class="form-control" accept="image/*" required asp-for="Image">
                     <span asp-validation-for="Image" class="text-danger"></span>
                 </div>
 

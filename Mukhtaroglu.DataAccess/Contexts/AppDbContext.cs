@@ -6,7 +6,7 @@ using Mukhtaroglu.DataAccess.DataInitalizers;
 using Mukhtaroglu.DataAccess.Interceptors;
 
 namespace Mukhtaroglu.DataAccess.Contexts;
-internal class AppDbContext : IdentityDbContext<IdentityUser>
+public class AppDbContext : IdentityDbContext<AppUser>
 {
     internal bool BypassAuditableInterceptor { get; set; } = false;
     private readonly AuditableInterceptor _auditableInterceptor;
@@ -14,7 +14,14 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
     {
         _auditableInterceptor = auditableInterceptor;
     }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.AddInterceptors(_auditableInterceptor);
+        base.OnConfiguring(optionsBuilder);
+    }
 
+    public required DbSet<About> Abouts { get; set; }
+    public required DbSet<AboutLanguage> AboutLanguages { get; set; }
     public required DbSet<Language> Languages { get; set; }
     public required DbSet<Slider> Sliders { get; set; }
     public required DbSet<SliderLanguage> SliderLanguages { get; set; }
@@ -28,6 +35,8 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
     public required DbSet<FAQLanguage> FAQLanguages { get; set; }
     public required DbSet<Recommendation> Recommendations { get; set; }
     public required DbSet<RecommendationLanguage> RecommendationLanguages { get; set; }
+    public required DbSet<Product> Products { get; set; }
+    public required DbSet<ProductLanguage> ProductLanguages { get; set; }
 
 
 
@@ -39,9 +48,5 @@ internal class AppDbContext : IdentityDbContext<IdentityUser>
         builder.Entity<Slider>().HasQueryFilter(x => !x.IsDeleted);
         base.OnModelCreating(builder);
     }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.AddInterceptors(_auditableInterceptor);
-        base.OnConfiguring(optionsBuilder);
-    }
+
 }

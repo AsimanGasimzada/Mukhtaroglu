@@ -1,0 +1,26 @@
+﻿@model EmployeeGetDto
+
+<section>
+    <div class="stg-row stg-large-gap">
+        <div class="stg-col-6 stg-tp-col-8 stg-tp-offset-2 stg-tp-bottom-gap-l" data-appear="fade-right" data-unload="fade-left">
+            <img class="bringer-lazy" src="@Model.ImagePath" data-src="@Model.ImagePath" alt="Elizabeth Riley" width="800" height="1200">
+        </div>
+        <div class="stg-col-6 stg-vertical-space-between" data-unload="fade-right">
+            <!-- Content -->
+            <div>
+                <div class="bringer-title-with-label stg-bottom-gap">
+                    <h1 data-appear="fade-up">@Model.Fullname</h1>
+                    <span class="bringer-label" data-appear="fade-up" data-delay="100">@Model.Position</span>
+                </div>
+                <p data-appear="fade-up" data-delay="250">@(Html.Raw(Model.Description))</p>
+            </div>
+            <!-- Contacts -->
+            <div class="bringer-member-contacts">
+                <div class="bringer-member-contacts-list">
+                    <a href="mailto:@(Model.EmailAddress)" data-appear="fade-left">@Model.EmailAddress</a>
+                    <a href="tel:+12345556789" data-appear="fade-left" data-delay="100">@Model.PhoneNumber</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

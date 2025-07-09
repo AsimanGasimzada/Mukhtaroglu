@@ -1,0 +1,46 @@
+﻿@model LoginDto
+@inject AuthLocalizer _localizer
+
+<!-- Section: CTA Form -->
+<section class="backlight-top is-fullwidth">
+    <div class="bringer-hero-block bringer-hero-type01">
+        <!-- Main Line -->
+        <div class="align-center">
+            <div class="stg-bottom-gap">
+                <h1 class="bringer-page-title is-large" data-appear="fade-up" data-delay="100" data-threshold="0">@_localizer.GetValue("PageTitle")</h1>
+            </div>
+            <p class="bringer-large-text" data-appear="fade-up" data-delay="200" data-threshold="0">@_localizer.GetValue("PageDescription")</p>
+        </div>
+
+    </div><!-- .bringer-hero-block -->
+    <div class="stg-row stg-valign-middle stg-cta-with-image stg-tp-column-reverse">
+        <div class="stg-col-6" style="margin:0 auto" data-unload="fade-left">
+            <form method="post" class="bringer-contact-form  customSubmitForm bringer-block" data-fill-error="Please, fill out the contact form." data-appear="fade-right" data-threshold="0.25">
+                <div class="bringer-form-content">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <!-- Field: Username or Email-->
+                    <label for="name">@_localizer.GetValue("EmailOrUsername")</label>
+                    <input asp-for="EmailOrUsername" placeholder="@_localizer.GetValue("EmailOrUsername")" required>
+                    <!-- Field: Password -->
+                    <label for="email">@_localizer.GetValue("Password")</label>
+                    <input asp-for="Password" placeholder="@_localizer.GetValue("Password")" required>
+
+                    <!-- Form Button -->
+                    <button type="submit">@_localizer.GetValue("Login")</button>
+                    <div class="bringer-contact-form__response"></div>
+                </div>
+                <span class="bringer-form-spinner"></span>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    const loginForm= document.querySelector('.customSubmitForm');
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        loginForm.submit();
+    })
+</script>

@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CodeActions;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Mukhtaroglu.Business.Dtos;
 using Mukhtaroglu.Business.Services.Abstractions;
 
 namespace Mukhtaroglu.Presentation.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class ServiceController : Controller
 {
     private readonly IServiceService _service;

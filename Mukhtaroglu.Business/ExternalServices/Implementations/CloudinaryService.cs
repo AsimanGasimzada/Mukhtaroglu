@@ -3,7 +3,6 @@ using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Mukhtaroglu.Business.Dtos.OptionsDtos;
-using Mukhtaroglu.Business.ExternalServices.Abstractions;
 using System.Net;
 
 namespace Mukhtaroglu.Business.ExternalServices.Implementations;

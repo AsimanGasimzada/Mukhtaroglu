@@ -18,6 +18,7 @@ public static class BusinessServiceRegistration
     private static void _addExternalServices(IServiceCollection services)
     {
         services.AddSingleton<ICloudinaryService, CloudinaryService>();
+        services.AddSingleton<IEmailService, EmailService>();
     }
     private static void _addServices(IServiceCollection services)
     {
@@ -29,5 +30,8 @@ public static class BusinessServiceRegistration
         services.AddScoped<IEmployeeService, EmployeeService>();
         services.AddScoped<IFAQService, FAQService>();
         services.AddScoped<IUIService, UIService>();
+        services.AddScoped<IAboutService, AboutService>();
+        services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IAuthService, AuthService>();
     }
 }

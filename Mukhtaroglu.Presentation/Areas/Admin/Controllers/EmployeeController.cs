@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Mukhtaroglu.Business.Dtos;
 using Mukhtaroglu.Business.Services.Abstractions;
 
 namespace Mukhtaroglu.Presentation.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class EmployeeController : Controller
 {
     private readonly IEmployeeService _service;

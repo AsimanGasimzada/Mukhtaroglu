@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Mukhtaroglu.Business.Dtos;
 using Mukhtaroglu.Business.Services.Abstractions;
-using System.Threading.Tasks;
 
 namespace Mukhtaroglu.Presentation.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class SettingController : Controller
 {
     private readonly ISettingService _service;

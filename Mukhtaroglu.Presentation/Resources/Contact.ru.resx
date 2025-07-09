@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="AddressDescription" xml:space="preserve">
+    <value>Загляните в наш яркий офис. Мы будем рады приветствовать вас и поделиться нашей творческой атмосферой. Давайте подпитаем ваше видение!</value>
+  </data>
+  <data name="ClientCount" xml:space="preserve">
+    <value>Довольные Kлиенты</value>
+  </data>
+  <data name="ContactFormDescription" xml:space="preserve">
+    <value>🚗 Мы помогаем поддерживать работоспособность и производительность транспортных средств наших клиентов, предоставляя высококачественную продукцию в автомобильном секторе. Как Muxtaroğlu-VM LLC, мы на вашей стороне с надежной продукцией и профессиональным обслуживанием.</value>
+  </data>
+  <data name="ContactFormTitle" xml:space="preserve">
+    <value>Есть идея? Поделитесь своим мнением!
+Присоединяйтесь к обсуждению продуктов, впечатлений и вопросов — мы будем рады услышать от вас! 🛠</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="EmailDescription" xml:space="preserve">
+    <value>Если у вас есть вопросы или предложения, отправьте нам письмо — мы быстро ответим! 💼✉</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Количество магазинов</value>
+  </data>
+  <data name="FailedProcess" xml:space="preserve">
+    <value>ВОЗНИКЛА ПРОБЛЕМА ПРИ ОТПРАВКЕ ЗАПРОСА. ПОПРОБУЙТЕ СВЯЗАТЬСЯ С НАМИ ДРУГИМ СПОСОБОМ.</value>
+  </data>
+  <data name="LetsTalk" xml:space="preserve">
+    <value>Давайте 🗣 поговорим!</value>
+  </data>
+  <data name="LetsTalkDescription" xml:space="preserve">
+    <value>Вот как вы можете связаться с командой Мухтароглу:</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="PhoneDescription" xml:space="preserve">
+    <value>Всего один звонок для быстрого ответа и живой поддержки! 📲</value>
+  </data>
+  <data name="SendButton" xml:space="preserve">
+    <value>Ваше сообщение</value>
+  </data>
+  <data name="SocialMedia" xml:space="preserve">
+    <value>Социальные Cети</value>
+  </data>
+  <data name="SocialMediaDescription" xml:space="preserve">
+    <value>📱 Подпишитесь на нас!
+Присоединяйтесь к нам в социальных сетях, чтобы получать новости, кампании и полезные советы! 🔧🚗</value>
+  </data>
+  <data name="SuccessProcess" xml:space="preserve">
+    <value>ВАША ЗАЯВКА БЫЛА УСПЕШНО ПРИНЯТА</value>
+  </data>
+  <data name="VisitOffice" xml:space="preserve">
+    <value>Посетите наш Oфис</value>
+  </data>
+  <data name="VisitOfficeDescription" xml:space="preserve">
+    <value>Приходите в гости! Мы любим приветствовать потенциальных сотрудников в нашем ярком пространстве. Запланируйте визит и вдохновитесь нашей творческой энергией.</value>
+  </data>
+  <data name="Your Email" xml:space="preserve">
+    <value>Ваш адрес электронной почты</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>Ваше сообщение</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Ваше имя</value>
+  </data>
+  <data name="ProductCount" xml:space="preserve">
+    <value>Количество продуктов</value>
+  </data>
+</root>

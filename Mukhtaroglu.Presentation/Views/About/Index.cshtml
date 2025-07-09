@@ -1,0 +1,58 @@
+﻿@model AboutDto
+<!-- Hero Section -->
+<section data-padding="top">
+    <div class="bringer-hero-block bringer-hero-type04" data-unload="fade-up">
+
+        <!-- Title -->
+        <div class="align-center">
+            <div class="stg-bottom-gap">
+                <h1 class="bringer-page-title is-large" data-appear="fade-up" data-delay="100" data-threshold="0">@Model.Settings["AboutTitle"]</h1>
+            </div>
+            <p class="bringer-large-text" data-appear="fade-up" data-delay="200" data-threshold="0">@Model.Settings["AboutDescription"]</p>
+        </div>
+    </div><!-- .bringer-hero-block -->
+</section>
+
+<!-- Section: About -->
+<section class="backlight-bottom">
+    @{
+        int index = 0;
+    }
+
+    @foreach (var item in Model.Abouts)
+    {
+        var isEven = index % 2 == 0;
+        <div class="stg-row stg-large-gap stg-valign-middle stg-bottom-gap-l stg-m-normal-gap">
+            @if (isEven)
+            {
+                <!-- Şəkil solda, mətn sağda -->
+                <div class="stg-col-6" data-appear="fade-right">
+                    <div class="bringer-parallax-media">
+                        <img class="bringer-lazy" src="img/null.png" data-src="@item.ImagePath" alt="@item.Title" width="960" height="960">
+                    </div>
+                </div>
+                <div class="stg-col-6" data-appear="fade-left">
+                    <h3>@item.Title</h3>
+                    <p class="bringer-large-text">@(Html.Raw(item.Description))</p>
+                </div>
+            }
+            else
+            {
+                <!-- Mətn solda, şəkil sağda -->
+                <div class="stg-col-6" data-appear="fade-right">
+                    <h3>@item.Title</h3>
+                    <p class="bringer-large-text">@(Html.Raw(item.Description))</p>
+                </div>
+                <div class="stg-col-6" data-appear="fade-left">
+                    <div class="bringer-parallax-media">
+                        <img class="bringer-lazy" src="img/null.png" data-src="@item.ImagePath" alt="@item.Title" width="960" height="960">
+                    </div>
+                </div>
+            }
+        </div>
+        index++;
+    }
+
+</section>
+
+                    <partial name="_contactPartial"> </partial>

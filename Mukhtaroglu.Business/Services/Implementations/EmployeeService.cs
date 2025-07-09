@@ -133,8 +133,8 @@ internal class EmployeeService : IEmployeeService
         if (dto.Image is { })
         {
             string imagePath = await _cloudinaryService.FileCreateAsync(dto.Image);
-            dto.ImagePath = imagePath;
             await _cloudinaryService.FileDeleteAsync(existEntity.ImagePath);
+            existEntity.ImagePath = imagePath;
         }
 
         _repository.Update(existEntity);

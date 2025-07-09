@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Mukhtaroglu.DataAccess.DataInitalizers;
 using Mukhtaroglu.DataAccess.Interceptors;
+using Mukhtaroglu.DataAccess.Localizers;
 using Mukhtaroglu.DataAccess.Repositories.Implementations;
 
 namespace Mukhtaroglu.DataAccess.ServiceRegistrations;
@@ -13,8 +15,10 @@ public static class DataAccessServiceRegistration
         _addDatabase(services, configuration);
         _addIdentity(services);
         _addRepositories(services);
+        _addLocalizers(services);
 
         services.AddScoped<AuditableInterceptor>();
+        services.AddScoped<DbContextInitalizer>();
 
         return services;
     }
@@ -27,6 +31,8 @@ public static class DataAccessServiceRegistration
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         services.AddScoped<IFAQRepository, FAQRepository>();
         services.AddScoped<IRecommendationRepository, RecommendationRepository>();
+        services.AddScoped<IAboutRepository, AboutRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
     }
 
     private static void _addDatabase(IServiceCollection services, IConfiguration configuration)
@@ -57,5 +63,13 @@ public static class DataAccessServiceRegistration
 
         }).AddDefaultTokenProviders()
           .AddEntityFrameworkStores<AppDbContext>();
+    }
+
+    private static void _addLocalizers(IServiceCollection services)
+    {
+        services.AddSingleton<AuthLocalizer>();
+        services.AddSingleton<HomeLocalizer>();
+        services.AddSingleton<ContactLocalizer>();
+        services.AddSingleton<LayoutLocalizer>();
     }
 }

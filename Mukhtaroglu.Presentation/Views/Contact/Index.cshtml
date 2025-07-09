@@ -1,0 +1,122 @@
+﻿@model ContactDto
+@inject ContactLocalizer _localizer
+
+<!-- Section: About Us -->
+<section>
+    <!-- Section Title -->
+    <div class="stg-row stg-bottom-gap">
+        <div class="stg-col-8">
+            <h2 data-split-appear="fade-up" data-unload="fade-up">@Model.Settings["ContactTitle"]</h2>
+        </div>
+        <div class="stg-col-4"></div>
+    </div>
+    <!-- Section Content -->
+    <div class="stg-row stg-bottom-gap-l">
+        <div class="stg-col-6 stg-offset-6" data-appear="fade-up" data-delay="200" data-unload="fade-up">
+            <p>@Model.Settings["ContactDescription"]</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- Section: Let's Talk -->
+<section class="backlight-top divider-bottom">
+    <!-- Section Title -->
+    <div class="stg-row bringer-section-title">
+        <div class="stg-col-8 stg-offset-2">
+            <div class="align-center">
+                <h2 data-appear="fade-up" data-unload="fade-up">@_localizer.GetValue("LetsTalk")</h2>
+                <p class="bringer-large-text" data-appear="fade-up" data-delay="100" data-unload="fade-up">@_localizer.GetValue("LetsTalkDescription")</p>
+            </div>
+        </div>
+    </div>
+    <!-- Contacts Grid -->
+    <div class="stg-row" data-stagger-appear="fade-up" data-delay="200" data-stagger-unload="fade-up">
+        <div class="stg-col-4 stg-tp-col-6 stg-tp-bottom-gap">
+            <!-- Phone -->
+            <div class="bringer-block stg-aspect-square stg-vertical-space-between">
+                <a href="tel:@Model.Settings["PhoneNumber"]" class="bringer-grid-item-link"></a>
+                <div>
+                    <h5>@_localizer.GetValue("Phone")<span class="bringer-accent">.</span></h5>
+                    <h6>@Model.Settings["PhoneNumber"]</h6>
+                </div>
+                <p>@_localizer.GetValue("PhoneDescription")</p>
+            </div>
+        </div>
+        <div class="stg-col-4 stg-tp-col-6 stg-tp-bottom-gap">
+            <!-- Email -->
+            <div class="bringer-block stg-aspect-square stg-vertical-space-between">
+                <a href="mailto:@Model.Settings["Email"]" class="bringer-grid-item-link"></a>
+                <div>
+                    <h5>@_localizer.GetValue("Email")<span class="bringer-accent">.</span></h5>
+                    <h6>@Model.Settings["Email"]</h6>
+                </div>
+                <p>@_localizer.GetValue("EmailDescription")</p>
+            </div>
+        </div>
+        <div class="stg-col-4 stg-tp-col-12">
+            <!-- Social Media -->
+            <div class="bringer-block stg-aspect-square stg-tp-aspect-rectangle stg-vertical-space-between">
+                <div>
+                    <h5>@_localizer.GetValue("SocialMedia")<span class="bringer-accent">.</span></h5>
+                    <ul class="bringer-socials-list stg-small-gap" data-stagger-appear="fade-up" data-stagger-delay="75">
+                        <li>
+                            <a href="@Model.Settings["FacebookLink"]" target="_blank" class="bringer-socials-facebook">
+                                <i></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Model.Settings["InstagramLink"]" target="_blank" class="bringer-socials-instagram">
+                                <i></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Model.Settings["TiktokLink"]" target="_blank" class="bringer-socials-tiktok">
+                                <i></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Model.Settings["WhatsappLink"]" target="_blank" class="bringer-socials-whatsapp">
+                                <i></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <p>@_localizer.GetValue("SocialMediaDescription")</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map -->
+<section>
+    <!-- Section Title -->
+    <div class="stg-row bringer-section-title">
+        <div class="stg-col-8 stg-offset-2">
+            <div class="align-center">
+                <h2 data-appear="fade-up" data-unload="fade-up">@_localizer.GetValue("VisitOffice")</h2>
+                <p class="bringer-large-text" data-appear="fade-up" data-delay="100" data-unload="fade-up">@_localizer.GetValue("VisitOfficeDescription")</p>
+            </div>
+        </div>
+    </div>
+    <!-- Contacts Grid -->
+    <div class="stg-row">
+        <div class="stg-col-4 stg-tp-col-6 stg-m-bottom-gap" data-appear="fade-right" data-delay="100" data-unload="fade-left">
+            <!-- Phone -->
+            <div class="bringer-block stg-aspect-square stg-vertical-space-between">
+                <a href="https://maps.app.goo.gl/b3e6V6zbe8Dym57m7" class="bringer-grid-item-link"></a>
+                <div>
+                    <h5>@_localizer.GetValue("Address")<span class="bringer-accent">.</span></h5>
+                    <h6>@Model.Settings["Address"]</h6>
+                </div>
+                <p>@_localizer.GetValue("AddressDescription")</p>
+            </div>
+        </div>
+        <div class="stg-col-8 stg-tp-col-6" data-appear="fade-left" data-delay="200" data-unload="fade-right">
+            <iframe class="bringer-google-map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3035.588581429398!2d49.710178376013126!3d40.46224207143226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI3JzQ0LjEiTiA0OcKwNDInNDUuOSJF!5e0!3m2!1sen!2saz!4v1748898407249!5m2!1sen!2saz" width="790" height="379" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<partial name="_contactPartial"></partial>

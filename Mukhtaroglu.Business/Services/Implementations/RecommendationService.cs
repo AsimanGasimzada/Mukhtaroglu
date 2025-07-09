@@ -52,9 +52,6 @@ internal class RecommendationService : IRecommendationService
     {
         var entities = await _repository.GetAll(_getIncludeFunc()).ToListAsync();
 
-        if (entities is null)
-            throw new NotFoundException("Recommendations not found");
-
         var dtos = _mapper.Map<List<RecommendationGetDto>>(entities);
         return dtos;
     }

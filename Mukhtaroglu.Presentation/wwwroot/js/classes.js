@@ -540,7 +540,7 @@ class Bringer_Marquee {
             this.$marquee = jQuery($obj);
         }
 
-        this.init_speed = this.$marquee.attr('data-type') !== undefined ? parseInt(this.$marquee.attr('data-speed'), 10) : 5000;
+        this.init_speed = this.$marquee.attr('data-type') !== undefined ? parseInt(this.$marquee.attr('data-speed'), 10) : 12000;
         this.speed = this.init_speed;
         
         this.$inner = this.$marquee.children('.bringer-marquee-inner');

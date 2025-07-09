@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Mukhtaroglu.Business.Dtos;
 using Mukhtaroglu.Business.Services.Abstractions;
 
 namespace Mukhtaroglu.Presentation.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class FAQController : Controller
 {
     private readonly IFAQService _service;
